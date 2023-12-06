@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using EmployeeTrainingRegistration.DataService;
 
 namespace SkillsLab_Assignment.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        private readonly IDAL _layer;
+
+        public HomeController(IDAL layer)
         {
-            return View();
+            _layer = layer;
         }
 
         public ActionResult About()
@@ -19,12 +22,11 @@ namespace SkillsLab_Assignment.Controllers
 
             return View();
         }
-
-        public ActionResult Contact()
+        public ActionResult Index()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = _layer.Connect();
 
-            return View();
+            return RedirectToAction("Index", "Login");
         }
     }
 }

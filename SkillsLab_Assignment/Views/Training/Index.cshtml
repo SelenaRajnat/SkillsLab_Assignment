@@ -1,0 +1,121 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model List<DataAccessLayer.Models.Training>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #051a82;
+        }
+
+            .topnav a {
+                float: left;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 20px 20px;
+                text-decoration: none;
+                font-size: 28px;
+                font-weight: 800px;
+                font-family: "Times New Roman", serif;
+            }
+
+                .topnav a:hover {
+                    background-color: #ddd;
+                    color: #051a82;
+                }
+
+                /* Create a right-aligned (split) link inside the navigation bar */
+                .topnav a.split {
+                    float: right;
+                    background-color: gray;
+                    color: white;
+                }
+
+        .card {
+            width: 400px; /* Set your desired width */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 15px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+            .card:hover {
+                transform: scale(1.05);
+            }
+
+        .card-header {
+            background-color: #051a82; /* Set your desired background color */
+            color: #ffffff; /* Set your desired text color */
+            padding: 0.75rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+            /* text-align:center; */
+        }
+
+        .card-body {
+            padding: 1.25rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-text {
+            font-size: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .btn-primary {
+            color: #ffffff;
+            background-color: #051a82; /* Set your desired button color */
+            border: none;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+            .btn-primary:hover {
+                background-color: #051a82; /* Set your desire*/
+            }
+    </style>
+</head>
+<body>
+
+    <div class="topnav">
+        <a class="active" href="#">Training List</a>
+        <a href="#" class="split">Logout</a>
+    </div>
+    @foreach (var training in Model)
+    {
+
+        <div style="padding-left:16px">
+            <div class="card">
+                <div class="card-header">
+                    Training1
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">@training.TrainingName</h5>
+                    <p class="card-text">@training.TrainingDescription</p>
+                    <p class="card-text">Limited Seats: @training.LimitedSeat</p>
+                    <a href="#" class="btn btn-primary">View</a>
+                    <a href="#" class="btn btn-primary">Apply</a>
+                </div>
+            </div>
+        </div>
+    }
+
+</body>
+</html>
+

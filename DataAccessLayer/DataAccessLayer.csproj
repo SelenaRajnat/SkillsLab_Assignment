@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,7 +42,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataService\DAL.cs" />
+    <Compile Include="DataService\IDAL.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\Training.cs" />
+    <Compile Include="Models\UserAccount.cs" />
+    <Compile Include="Models\UserRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\ILoginRepository.cs" />
+    <Compile Include="Repository\IRegisterRepository.cs" />
+    <Compile Include="Repository\ITrainingRespository.cs" />
+    <Compile Include="Repository\LoginRepository.cs" />
+    <Compile Include="Repository\RegisterRepository.cs" />
+    <Compile Include="Repository\TrainingRepository.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
